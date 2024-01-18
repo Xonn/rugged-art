@@ -20,9 +20,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/LoadMorePosts.tsx", "src/app/blog-3/page.tsx", "src/app/[lang]/components/ErrorBoundry.jsx", "src/app/[lang]/components/ErrorBoundary.tsx", "src/app/global-error.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/LoadMorePosts.tsx", "app/blog-3/page.tsx", "app/components/ErrorBoundry.jsx", "app/components/ErrorBoundary.tsx", "app/global-error.tsx"],
   "exclude": ["node_modules"]
 }

@@ -10,6 +10,9 @@ const populate = {
       picture: {
         fields: ["url", "alternativeText", "caption", "width", "height"],
       },
+      pictureMobile: {
+        fields: ["url", "alternativeText", "caption", "width", "height"],
+      },
       buttons: {
         populate: true,
       },
@@ -34,6 +37,9 @@ const populate = {
       submitButton: {
         populate: true,
       },
+      content: {
+        populate: true,
+      }
     },
   },
   seo: {

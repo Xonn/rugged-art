@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_sections_introductions",
+  "info": {
+    "displayName": "Introduction",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "textLeft": {
+      "type": "richtext"
+    },
+    "textRight": {
+      "type": "richtext"
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button-link",
+      "max": 2,
+      "min": 2
+    },
+    "pictureMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
