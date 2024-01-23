@@ -844,7 +844,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.hero',
         'sections.introduction',
         'sections.services',
-        'sections.heading-rich-text'
+        'sections.heading-rich-text',
+        'sections.location-contact'
       ]
     > &
       Attribute.SetPluginOptions<{

@@ -130,15 +130,11 @@ export interface LayoutFooter extends Schema.Component {
     description: '';
   };
   attributes: {
-    footerLogo: Attribute.Component<'layout.logo'>;
-    menuLinks: Attribute.Component<'links.link', true>;
-    legalLinks: Attribute.Component<'links.link', true>;
-    socialLinks: Attribute.Component<'links.social-link', true>;
-    categories: Attribute.Relation<
-      'layout.footer',
-      'oneToMany',
-      'api::category.category'
-    >;
+    title: Attribute.String;
+    content: Attribute.Component<'shared.rich-text', true> &
+      Attribute.SetMinMax<{
+        max: 3;
+      }>;
   };
 }
 
@@ -400,6 +396,18 @@ export interface SectionsLeadForm extends Schema.Component {
   };
 }
 
+export interface SectionsLocationContact extends Schema.Component {
+  collectionName: 'components_sections_location_contacts';
+  info: {
+    displayName: 'Location - Contact';
+  };
+  attributes: {
+    location: Attribute.RichText;
+    picture: Attribute.Media;
+    contact: Attribute.RichText;
+  };
+}
+
 export interface SectionsPricing extends Schema.Component {
   collectionName: 'components_sections_pricings';
   info: {
@@ -562,6 +570,7 @@ declare module '@strapi/types' {
       'sections.introduction': SectionsIntroduction;
       'sections.large-video': SectionsLargeVideo;
       'sections.lead-form': SectionsLeadForm;
+      'sections.location-contact': SectionsLocationContact;
       'sections.pricing': SectionsPricing;
       'sections.rich-text': SectionsRichText;
       'sections.services': SectionsServices;

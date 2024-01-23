@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_location_contacts",
+  "info": {
+    "displayName": "Location - Contact"
+  },
+  "options": {},
+  "attributes": {
+    "location": {
+      "type": "richtext"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "contact": {
+      "type": "richtext"
+    }
+  }
+}

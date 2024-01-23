@@ -6,30 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "footerLogo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "layout.logo"
+    "title": {
+      "type": "string"
     },
-    "menuLinks": {
+    "content": {
       "type": "component",
       "repeatable": true,
-      "component": "links.link"
-    },
-    "legalLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.link"
-    },
-    "socialLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.social-link"
-    },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
+      "component": "shared.rich-text",
+      "max": 3
     }
   }
 }
