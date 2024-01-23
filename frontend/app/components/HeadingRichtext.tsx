@@ -15,7 +15,7 @@ function HeadingRichtext({ data }: HeadingRichtextProps) {
     <div className="flex flex-row items-start gap-40">
       {/* <h2 className="uppercase text-[80px] leading-[0.8] font-normal font-fraunces">{data.title}</h2> */}
       <Image alt='Directeur Artistique & Designer' width="434" height="190" src="/directeur-artistique-designer.svg" />
-      <div className="text-xs whitespace-pre-wrap">
+      <div className="text-xs whitespace-pre-wrap max-w-[210px]">
         <ReactMarkdown children={data.content} remarkPlugins={[remarkGfm]} />
       </div>
     </div>

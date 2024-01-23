@@ -34,11 +34,8 @@ export async function getGlobal(): Promise<any> {
             "navbar.links.projects",
             "navbar.socialLinks",
             "navbar.navbarLogo.logoImg",
-            "footer.footerLogo.logoImg",
-            "footer.menuLinks",
-            "footer.legalLinks",
-            "footer.socialLinks",
-            "footer.categories",
+            "footer.title",
+            "footer.content",
         ],
     };
     return await fetchAPI(path, urlParamsObject, options);

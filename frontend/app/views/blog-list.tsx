@@ -22,6 +22,7 @@ interface Project {
       data: {
         attributes: {
           url: string;
+          alternativeText: string;
         };
       };
     };
@@ -51,10 +52,10 @@ export default function PostList({
             >
               {imageUrl && (
                 <Image
-                  alt="presentation"
+                  alt={project.attributes.cover.data.attributes.alternativeText}
                   width="455"
                   height="367"
-                  className="object-cover w-full"
+                  className="object-cover w-full aspect-[4/3]"
                   quality={100}
                   src={imageUrl}
                 />

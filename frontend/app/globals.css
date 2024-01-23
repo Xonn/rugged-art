@@ -24,7 +24,14 @@
 
 @font-face {
   font-family: Fraunces;
-  src: url("fonts/Fraunces_9pt-Regular.ttf") format("truetype");
+  src: url("fonts/Fraunces_144pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Baskervville;
+  src: url("fonts/Baskervville-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }

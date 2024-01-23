@@ -6,6 +6,7 @@ import Email from "../components/Email";
 import Introduction from "../components/Introduction";
 import Services from "../components/Services";
 import HeadingRichtext from "../components/HeadingRichtext";
+import LocationContact from "../components/LocationContact";
 
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
@@ -25,6 +26,8 @@ export function sectionRenderer(section: any, index: number) {
       return <Services key={index} data={section} />;
     case "sections.heading-rich-text":
       return <HeadingRichtext key={index} data={section} />;
+    case "sections.location-contact":
+      return <LocationContact key={index} data={section} />;
     default:
       return null;
   }

@@ -1,3 +1,5 @@
+"use client";
+
 import { getStrapiMedia } from '../utils/api-helpers';
 import Image from 'next/image';
 
@@ -44,8 +46,9 @@ export default function Post({ data }: { data: Project }) {
 
                 return (picUrl &&
                     <Image
+                        key={picture.id}
                         src={picUrl}
-                        alt="Project image"
+                        alt={picture.attributes.alternativeText}
                         width={0}
                         height={0}
                         sizes="100vw"

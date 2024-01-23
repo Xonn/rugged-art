@@ -10,7 +10,7 @@ export interface RichTextProps {
 export default function RichText({ data }: RichTextProps) {
   // TODO: STYLE THE MARKDOWN
   return (
-    <section className="py-6 whitespace-pre-wrap rich-text dark:bg-black dark:text-gray-50 ">
+    <section className="whitespace-pre-wrap rich-text">
       <Markdown children={data.body} remarkPlugins={[remarkGfm]} />
     </section>
   );

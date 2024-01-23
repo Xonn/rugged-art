@@ -2,13 +2,14 @@ import React from 'react'
 import { getStrapiMedia, getGlobal } from "../utils/api-helpers";
 import Sidebar from '../components/Sidebar';
 import { MobileToggle } from '@/components/mobile-toggle';
+import Footer from '../components/Footer';
 
 export default async function layout({children} : {children: React.ReactNode}) {
   const global = await getGlobal();
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global.data) return null;
 
-  const { navbar } = global.data.attributes;
+  const { navbar, footer } = global.data.attributes;
 
   console.log(global.data.attributes.navbar.links);
   const navbarLogoUrl = getStrapiMedia(
@@ -25,7 +26,7 @@ export default async function layout({children} : {children: React.ReactNode}) {
           shortDescription={navbar.shortDescription}
         />
       </aside>
-      <main className="text-gray-800 container p-10 mx-auto md:p-6 py-8 bg-[#FCEEE4]">
+      <main className="text-gray-800 container p-0 mx-auto bg-[#FCEEE4]">
         <div className="block xl:hidden">
           <MobileToggle
             links={navbar.links}
@@ -34,7 +35,13 @@ export default async function layout({children} : {children: React.ReactNode}) {
             shortDescription={navbar.shortDescription}
           />
         </div>
-        {children}
+        <div className="p-10 md:p-6">
+          {children}
+        </div>
+        <Footer
+          title={footer.title}
+          content={footer.content}
+        />
       </main>
     </div>
   )
