@@ -28,9 +28,9 @@ export default function LocationContact({ data }: LocationContactProps) {
   const picUrl = getStrapiMedia(data.picture.data.attributes.url);
 
   return (
-    <div className="flex flex-row gap-12 mt-24 -mb-4 leading-tight uppercase whitespace-pre-wrap">
+    <div className="relative flex flex-row justify-center mt-32 mb-16 text-xs leading-tight uppercase whitespace-pre-wrap xl:justify-start xl:text-base xl-mb-4 gap-9 md:gap-16 xl:gap-12">
       <ReactMarkdown children={data.location} remarkPlugins={[remarkGfm]} />
-      <Image className="relative -top-10" alt={data.picture.data.attributes.alternativeText} width="100" height="120" src={picUrl || ""} />
+      <Image className="absolute w-16 h-20 md:relative -top-28 md:-top-10" alt={data.picture.data.attributes.alternativeText} width="100" height="120" src={picUrl || ""} />
       <ReactMarkdown children={data.contact} remarkPlugins={[remarkGfm]} />
     </div>
   )
