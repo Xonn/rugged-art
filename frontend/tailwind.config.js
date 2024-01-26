@@ -21,6 +21,7 @@ module.exports = {
         'bertioga': ['Bertioga'],
         'fraunces': ['Fraunces'],
         'baskervville': ['Baskervville'],
+        'alex-brush': ['AlexBrush'],
       },
       colors: {
         border: "hsl(var(--border))",
