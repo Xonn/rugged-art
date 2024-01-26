@@ -39,14 +39,14 @@ export default function PostList({
 }) {
   return (
     <section>
-      <div className="grid justify-center grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3">
+      <div className="grid justify-center grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 2xl:grid-cols-3">
         {projects.map((project) => {
           const imageUrl = getStrapiMedia(project.attributes.cover.data?.attributes.url);
           const categories = project.attributes.categories.data;
         
           return (
             <Link
-              href={`portfolio/${project.attributes.slug}`}
+              href={`/portfolio/${project.attributes.slug}`}
               key={project.id}
               className="w-full mx-auto overflow-hidden group hover:no-underline focus:no-underline"
             >
