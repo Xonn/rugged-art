@@ -33,7 +33,7 @@ function SideLink({url, text, projects }: SideLinkProps) {
       <div className="flex flex-col items-center xl:items-baseline">
         {projects.data.map((project) => (
           <Button key={project.id} className="h-8 text-xs font-normal" size="sm" variant="link" asChild>
-            <Link href={project.attributes.slug}>
+            <Link href={`/portfolio/${project.attributes.slug}`}>
               {project.attributes.name}
             </Link>
           </Button>
