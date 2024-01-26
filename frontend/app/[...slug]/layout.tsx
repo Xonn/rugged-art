@@ -34,7 +34,7 @@ export default async function layout({children} : {children: React.ReactNode}) {
             shortDescription={navbar.shortDescription}
           />
         </div>
-        <div className="py-20 px-30 md:px-28">
+        <div className="py-20 md:px-0 xl:px-28">
           {children}
         </div>
         <Footer
