@@ -1,8 +1,11 @@
+"use client";
 import React from 'react'
 import { getStrapiMedia, getGlobal } from "../utils/api-helpers";
 import Sidebar from '../components/Sidebar';
 import { MobileToggle } from '@/components/mobile-toggle';
 import Footer from '../components/Footer';
+import ScrollToTop from 'react-scroll-to-top';
+import { ChevronUp } from 'lucide-react';
 
 export default async function layout({children} : {children: React.ReactNode}) {
   const global = await getGlobal();
@@ -43,6 +46,7 @@ export default async function layout({children} : {children: React.ReactNode}) {
           content={footer.content}
         />
       </main>
+      <ScrollToTop smooth width="32" height="32" className="!bg-black !text-white !w-8 !h-8 !rounded-full" component={<ChevronUp className="!inline" />} />
     </div>
   )
 }
