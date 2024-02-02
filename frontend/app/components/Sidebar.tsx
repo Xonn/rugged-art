@@ -6,20 +6,18 @@ import Markdown from "react-markdown";
 import Image from "next/image";
 
 interface ProjectProps {
-  data: {
     id: number;
     attributes: {
       name: string;
       slug: string;
     }
-  }
 }
 
 export interface SideLinkProps {
   id: number;
   text: string;
   url: string;
-  projects: Array<ProjectProps>;
+  projects: { data : [ProjectProps] };
 }
 
 function SideLink({url, text, projects }: SideLinkProps) {
