@@ -1,8 +1,8 @@
 {
-  "name": "corporate-blog-template",
+  "name": "rugged-art",
   "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "version": "1.0.0",
+  "description": "Rugged-art backend portfolio build with Strapi",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -10,19 +10,19 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.15.5",
+    "@strapi/plugin-i18n": "4.19.1",
     "@strapi/plugin-seo": "^1.8.0",
-    "@strapi/plugin-users-permissions": "4.15.5",
-    "@strapi/strapi": "4.15.5",
-    "better-sqlite3": "8.4.0",
+    "@strapi/plugin-users-permissions": "4.19.1",
+    "@strapi/strapi": "4.19.1",
+    "better-sqlite3": "8.6.0",
     "esbuild": "^0.19.11",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^5.2.1"
+    "react-router-dom": "5.3.4",
+    "styled-components": "5.3.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Bastien SOARES"
   },
   "strapi": {
     "uuid": "42b937aa-0f16-4a30-bb55-95f60ec03b48"
