@@ -27,11 +27,11 @@ function selectedFilter(current: string, selected: string) {
 }
 
 export default function ArticleSelect({
-  // categories,
+  categories,
   articles,
   params,
 }: {
-  // categories: Category[];
+  categories: Category[];
   articles: Article[];
   params: {
     slug: string;
