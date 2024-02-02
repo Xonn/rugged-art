@@ -1,11 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import HighlightedText from "./HighlightedText";
 import { getStrapiMedia } from "../utils/api-helpers";
 import Markdown from "react-markdown";
-import { renderButtonStyle } from "../utils/render-button-style";
 import { Button } from "../../components/ui/button";
-// import { Button, buttonVariants } from "@/components/ui/button";
 
 interface Picture {
   data: {
@@ -94,12 +91,11 @@ export default function Introduction({ data }: IntroductionProps) {
       </div>
       <div className="flex flex-col items-center justify-center gap-8 mt-16 lg:flex-row">
         {data.buttons.map((button: Button, index: number) => (
-          <Button size="lg" variant={button.type} asChild>
+          <Button size="lg" variant={button.type === "primary" ? "primary" : "secondary"} asChild>
             <Link
               key={index}
               href={button.url}
               target={button.newTab ? "_blank" : "_self"}
-              // className={buttonVariants({ variant: button.text! })}
             >
               {button.text}
             </Link>
