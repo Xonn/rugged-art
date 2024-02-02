@@ -1,7 +1,7 @@
 import React from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import Sidebar, { SideLink } from '@/app/components/Sidebar'
+import Sidebar, { SideLinkProps } from '@/app/components/Sidebar'
 
 export const MobileToggle = ({
   links,
@@ -9,8 +9,8 @@ export const MobileToggle = ({
   logoUrl,
   shortDescription
 } : {
-  links: Array<SideLink>;
-  socialLinks: Array<SideLink>;
+  links: Array<SideLinkProps>;
+  socialLinks: Array<SideLinkProps>;
   logoUrl: string | null;
   shortDescription: string;
 }) => {
