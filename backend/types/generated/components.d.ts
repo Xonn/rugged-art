@@ -132,9 +132,12 @@ export interface LayoutFooter extends Schema.Component {
   attributes: {
     title: Attribute.String;
     content: Attribute.Component<'shared.rich-text', true> &
-      Attribute.SetMinMax<{
-        max: 3;
-      }>;
+      Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
   };
 }
 
@@ -356,10 +359,13 @@ export interface SectionsIntroduction extends Schema.Component {
     textLeft: Attribute.RichText;
     textRight: Attribute.RichText;
     buttons: Attribute.Component<'links.button-link', true> &
-      Attribute.SetMinMax<{
-        min: 2;
-        max: 2;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 2;
+          max: 2;
+        },
+        number
+      >;
     pictureMobile: Attribute.Media & Attribute.Required;
   };
 }
@@ -442,10 +448,13 @@ export interface SectionsServices extends Schema.Component {
   attributes: {
     title: Attribute.String;
     content: Attribute.Component<'shared.rich-text', true> &
-      Attribute.SetMinMax<{
-        min: 4;
-        max: 4;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 4;
+          max: 4;
+        },
+        number
+      >;
   };
 }
 
