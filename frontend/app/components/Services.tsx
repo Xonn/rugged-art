@@ -29,7 +29,7 @@ export default function Services({ data }: ServicesProps) {
             <RichText data={content} />
           </div>
         ))}
-        <div className="flex gap-6">
+        <div className="flex gap-10 ml-10 uppercase">
           {rightContent.map((content, i) => (
             // <div key={i} className={cn("flex flex-col max-w-[340px] xl:max-w-[230px]", i === 2 && "xl:ml-[100px]")}>
               <RichText data={content} />

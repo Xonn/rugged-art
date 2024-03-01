@@ -17,9 +17,7 @@ const buttonVariants = cva(
         primary:
           "px-9 py-2 text-lg font-bertioga font-medium border rounded-full dark:border-white uppercase",
         secondary:
-          "px-9 py-2 text-lg font-bertioga font-medium uppercase rounded-full dark:bg-white dark:text-black",
-        // secondary:
-        //   "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "px-9 py-2 text-lg font-bertioga font-medium uppercase rounded-full bg-white text-black",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-black text-lg font-bold uppercase",
         linkThin: "text-black text-lg font-normal uppercase",
