@@ -17,7 +17,7 @@ export default async function MainLayout({
   );
 
   return (
-    <div className="h-full text-gray-100 bg-black">
+    <div className="h-auto text-gray-100 bg-black">
       <Navbar
           links={navbar.links}
           logoUrl={navbarLogoUrl}

@@ -39,7 +39,7 @@ export default function Introduction({ data }: IntroductionProps) {
   const imgMobileUrl = getStrapiMedia(data.pictureMobile.data.attributes.url);
 
   return (
-    <section className="dark:bg-black dark:text-gray-100">
+    <section className="py-24 bg-black md:py-20 dark:text-gray-100">
       <div className="flex items-center justify-center w-auto h-auto">
           <Image
             src={imgUrl || ""}
