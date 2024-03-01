@@ -13,7 +13,7 @@ type Props = {
 export async function generateMetadata({params}: Props): Promise<Metadata> {
     const page = await getPageBySlug(params.slug, params.lang);
 
-    if (!page.data[0].attributes?.seo) return FALLBACK_SEO;
+    if (!page.data) return FALLBACK_SEO;
     const metadata = page.data[0].attributes.seo
 
     return {
@@ -24,7 +24,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 
 export default async function PageRoute({params}: Props) {
     const page = await getPageBySlug(params.slug, params.lang);
-    if (page.data.length === 0) return null;
+    if (!page.data || page.data.length === 0) return null;
     const contentSections = page.data[0].attributes.contentSections;
     return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }
