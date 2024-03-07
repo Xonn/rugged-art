@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  // experimental: {
-  //   appDir: true,
-  // },
   images: {
     remotePatterns: [
       {
@@ -14,7 +11,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'images.pexels.com',
+        hostname: 'rugged-art.onrender.com',
       }
     ],
   },
