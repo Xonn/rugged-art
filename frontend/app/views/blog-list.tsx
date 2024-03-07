@@ -57,7 +57,6 @@ export default function PostList({
                   width="455"
                   height="367"
                   effect="opacity"
-                  quality={100}
                   className="object-cover w-full aspect-[4/3]"
                   src={imageUrl}
                 />
