@@ -13,8 +13,6 @@ export default async function layout({children} : {children: React.ReactNode}) {
   if (!global.data) return null;
 
   const { navbar, footer } = global.data.attributes;
-
-  console.log(global.data.attributes.navbar.links);
   const navbarLogoUrl = getStrapiMedia(
     navbar.navbarLogo.logoImg.data.attributes.url
   );
@@ -29,17 +27,19 @@ export default async function layout({children} : {children: React.ReactNode}) {
           shortDescription={navbar.shortDescription}
         />
       </aside>
-      <main className="text-gray-800 container p-0 mx-auto bg-[#FCEEE4]">
-        <div className="block xl:hidden">
-          <MobileToggle
-            links={navbar.links}
-            socialLinks={navbar.socialLinks}
-            logoUrl={navbarLogoUrl}
-            shortDescription={navbar.shortDescription}
-          />
-        </div>
-        <div className="p-10 md:p-6">
-          {children}
+      <main className="text-gray-800 container mx-auto p-0 bg-[#FCEEE4]">
+        <div className="p-10 md:px-9">
+          <div className="block xl:hidden">
+            <MobileToggle
+              links={navbar.links}
+              socialLinks={navbar.socialLinks}
+              logoUrl={navbarLogoUrl}
+              shortDescription={navbar.shortDescription}
+            />
+          </div>
+          <div className="">
+            {children}
+          </div>
         </div>
         <Footer
           title={footer.title}

@@ -4,7 +4,6 @@ import { fetchAPI } from "../utils/fetch-api";
 
 import Loader from "../components/Loader";
 import Blog from "../views/blog-list";
-import PageHeader from "../components/PageHeader";
 
 interface Meta {
   pagination: {
@@ -65,7 +64,6 @@ export default function Profile() {
 
   return (
     <div>
-      {/* <PageHeader heading="Our Blog" text="Checkout Something Cool" /> */}
       <Blog data={data}>
         {meta!.pagination.start + meta!.pagination.limit <
           meta!.pagination.total && (
