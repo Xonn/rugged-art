@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
 import Markdown from "react-markdown";
 import { Button } from "../../components/ui/button";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface Picture {
   data: {
@@ -41,7 +42,7 @@ export default function Introduction({ data }: IntroductionProps) {
   return (
     <section className="py-24 bg-black md:py-20 dark:text-gray-100">
       <div className="flex items-center justify-center w-auto h-auto">
-          <Image
+          <LazyLoadImage
             src={imgUrl || ""}
             alt={
               data.picture.data.attributes.alternativeText || "none provided"
@@ -49,9 +50,9 @@ export default function Introduction({ data }: IntroductionProps) {
             className="hidden object-contain lg:block"
             width={1042}
             height={521}
-            //quality={100}
+            effect="opacity"
           />
-          <Image
+          <LazyLoadImage
             src={imgMobileUrl || ""}
             alt={
               data.pictureMobile.data.attributes.alternativeText || "none provided"
@@ -59,11 +60,10 @@ export default function Introduction({ data }: IntroductionProps) {
             className="block object-contain lg:hidden"
             width={540}
             height={883}
-            //quality={100}
+            effect="opacity"
           />
       </div>
       <div className="container flex flex-col items-end justify-center w-7/12 p-6 mx-auto font-medium font-bertioga lg:flex-row lg:justify-between">
-        {/* <div className="flex flex-row justify-center p-6 text-center rounded-lg lg:max-w-md xl:max-w-lg lg:text-left"> */}
           <Markdown children={data.textLeft} className="text-3xl text-center uppercase lg:text-left" />
           <Image
             src="/smiley.svg"
@@ -73,21 +73,6 @@ export default function Introduction({ data }: IntroductionProps) {
             className="relative bottom-1"
           />
           <Markdown children={data.textRight} className="text-3xl text-center uppercase lg:text-right" />
-          {/* <HighlightedText
-            text={data.textLeft}
-            tag="p"
-            className="text-3xl uppercase"
-            color="dark:text-violet-400"
-          />
-
-          <HighlightedText
-            text={data.textRight}
-            tag="p"
-            className="text-3xl uppercase"
-            color="dark:text-violet-400"
-          /> */}
-        {/* </div> */}
-        
       </div>
       <div className="flex flex-col items-center justify-center gap-8 mt-16 lg:flex-row">
         {data.buttons.map((button: Button, index: number) => (

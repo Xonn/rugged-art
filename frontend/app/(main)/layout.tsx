@@ -10,7 +10,7 @@ export default async function MainLayout({
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global.data) return null;
   
-  const { notificationBanner, navbar } = global.data.attributes;
+  const { navbar } = global.data.attributes;
 
   const navbarLogoUrl = getStrapiMedia(
     navbar.navbarLogo.logoImg.data.attributes.url
@@ -27,6 +27,5 @@ export default async function MainLayout({
         {children}
       </main>
     </div>
-    // <Banner data={notificationBanner} />
   );
 }

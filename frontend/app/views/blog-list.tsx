@@ -56,6 +56,7 @@ export default function PostList({
                   alt={project.attributes.cover.data.attributes.alternativeText}
                   width="455"
                   height="367"
+                  effect="opacity"
                   quality={100}
                   className="object-cover w-full aspect-[4/3]"
                   src={imageUrl}

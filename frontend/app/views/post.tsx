@@ -52,6 +52,7 @@ export default function Post({ data }: { data: Project }) {
                         alt={picture.attributes.alternativeText}
                         width={0}
                         height={0}
+                        effect="opacity"
                         sizes="100vw"
                         style={{ width: '100%', height: 'auto' }} // optional
                         className="object-cover w-full"
