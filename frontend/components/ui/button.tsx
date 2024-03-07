@@ -21,6 +21,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-black text-lg font-bold uppercase",
         linkThin: "text-black text-lg font-normal uppercase",
+        menu: "hover:border-[1px] hover:border-solid hover:border-black rounded bg-white"
       },
       size: {
         default: "h-10 px-4 py-2",

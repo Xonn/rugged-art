@@ -17,9 +17,9 @@ export const MobileToggle = ({
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="flex items-center justify-center w-16 h-16 my-4 bg-white rounded">
-            <div className="text-xl font-bold leading-[18px]">ME<br/>NU</div>
-          </Button>
+        <Button variant="menu" className="flex items-center justify-center w-16 h-16 mb-4">
+          <div className="text-xl font-bold leading-[18px]">ME<br/>NU</div>
+        </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-full bg-white sm:max-w-none">
         <Sidebar 

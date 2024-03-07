@@ -18,7 +18,7 @@ export default function Footer({
     <footer className="p-2 xl:p-16 h-[136px] md:h-[187px] w-full xl:h-[370px] bg-black text-white text-center">
       <div className="container max-w-[990px]">
         <h3 className="uppercase text-[29px] md:text-[50px] xl:text-[80px] font-fraunces" dangerouslySetInnerHTML={{__html: newTitle}}></h3>
-        <div className="flex flex-row text-[8px] xl:text-base items-center justify-between pt-10 text-left font-baskervville">
+        <div className="flex flex-row items-center justify-between pt-10 text-sm text-left xl:text-base font-baskervville">
           {content.map((row, i) => (
             <RichText key={i} data={row} />
           ))}
