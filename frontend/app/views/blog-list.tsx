@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getStrapiMedia, formatDate } from "../utils/api-helpers";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface Category {
   id: number;
@@ -51,12 +52,12 @@ export default function PostList({
               className="w-full mx-auto overflow-hidden group hover:no-underline focus:no-underline"
             >
               {imageUrl && (
-                <Image
+                <LazyLoadImage
                   alt={project.attributes.cover.data.attributes.alternativeText}
                   width="455"
                   height="367"
-                  className="object-cover w-full aspect-[4/3]"
                   quality={100}
+                  className="object-cover w-full aspect-[4/3]"
                   src={imageUrl}
                 />
               )}

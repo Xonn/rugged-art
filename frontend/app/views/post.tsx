@@ -2,6 +2,7 @@
 
 import { getStrapiMedia } from '../utils/api-helpers';
 import Image from 'next/image';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface Category {
     id: number;
@@ -45,7 +46,7 @@ export default function Post({ data }: { data: Project }) {
                 var picUrl = getStrapiMedia(picture.attributes.url);
 
                 return (picUrl &&
-                    <Image
+                    <LazyLoadImage
                         key={picture.id}
                         src={picUrl}
                         alt={picture.attributes.alternativeText}
