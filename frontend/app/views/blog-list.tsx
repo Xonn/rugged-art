@@ -40,7 +40,7 @@ export default function PostList({
 }) {
   return (
     <section>
-      <div className="grid justify-center grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2 2xl:grid-cols-3">
+      <div className="grid justify-center grid-cols-1 p-10 gap-x-10 gap-y-14 md:grid-cols-2 2xl:grid-cols-3 md:px-9">
         {projects.map((project) => {
           const imageUrl = getStrapiMedia(project.attributes.cover.data?.attributes.url);
           const categories = project.attributes.categories.data;
@@ -57,6 +57,7 @@ export default function PostList({
                   width="455"
                   height="367"
                   effect="opacity"
+                  wrapperClassName="w-full"
                   className="object-cover w-full aspect-[4/3]"
                   src={imageUrl}
                 />

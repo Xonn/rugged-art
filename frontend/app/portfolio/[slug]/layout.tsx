@@ -11,7 +11,7 @@ export default async function LayoutRoute({
   };
 }) {
   return (
-    <div className="-m-6">
+    <div>
       {children}
     </div>
   );

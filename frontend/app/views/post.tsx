@@ -52,7 +52,8 @@ export default function Post({ data }: { data: Project }) {
                         effect="opacity"
                         sizes="100vw"
                         style={{ width: '100%', height: 'auto' }} // optional
-                        className="object-cover w-full"
+                        wrapperClassName="w-full"
+                        className="inline-block object-cover w-full"
                     />
                 )
             })}
