@@ -1,7 +1,6 @@
 "use client";
 
 import { getStrapiMedia } from '../utils/api-helpers';
-import Image from 'next/image';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface Category {
@@ -50,8 +49,6 @@ export default function Post({ data }: { data: Project }) {
                         key={picture.id}
                         src={picUrl}
                         alt={picture.attributes.alternativeText}
-                        width={0}
-                        height={0}
                         effect="opacity"
                         sizes="100vw"
                         style={{ width: '100%', height: 'auto' }} // optional

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
 import Markdown from "react-markdown";
 import { Button } from "../../components/ui/button";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface Picture {
   data: {
@@ -42,7 +41,7 @@ export default function Introduction({ data }: IntroductionProps) {
   return (
     <section className="py-24 bg-black md:py-20 dark:text-gray-100">
       <div className="flex items-center justify-center w-auto h-auto">
-          <LazyLoadImage
+          <Image
             src={imgUrl || ""}
             alt={
               data.picture.data.attributes.alternativeText || "none provided"
@@ -50,9 +49,8 @@ export default function Introduction({ data }: IntroductionProps) {
             className="hidden object-contain lg:block"
             width={1042}
             height={521}
-            effect="opacity"
           />
-          <LazyLoadImage
+          <Image
             src={imgMobileUrl || ""}
             alt={
               data.pictureMobile.data.attributes.alternativeText || "none provided"
@@ -60,7 +58,6 @@ export default function Introduction({ data }: IntroductionProps) {
             className="block object-contain lg:hidden"
             width={540}
             height={883}
-            effect="opacity"
           />
       </div>
       <div className="container flex flex-col items-end justify-center w-7/12 p-6 mx-auto font-medium font-bertioga lg:flex-row lg:justify-between">
