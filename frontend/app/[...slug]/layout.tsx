@@ -25,8 +25,8 @@ export default async function layout({children} : {children: React.ReactNode}) {
           shortDescription={navbar.shortDescription}
         />
       </aside>
-      <main className="text-gray-800 p-0 bg-[#FCFCFC]">
-        <div className="block xl:hidden">
+      <main className="text-gray-900 p-0 bg-[#FCFCFC]">
+        <div className="container block mt-7 xl:hidden">
           <MobileToggle
             links={navbar.links}
             socialLinks={navbar.socialLinks}
@@ -34,7 +34,7 @@ export default async function layout({children} : {children: React.ReactNode}) {
             shortDescription={navbar.shortDescription}
           />
         </div>
-        <div className="container py-20 md:px-0 xl:px-28">
+        <div className="container md:px-[22px] px-[39px] md:pl-[120px] py-20 xl:px-20">
           {children}
         </div>
         <Footer

@@ -28,7 +28,7 @@ export default async function layout({children} : {children: React.ReactNode}) {
         />
       </aside>
       <main className="text-gray-800 p-0 bg-[#FCEEE4]">
-          <div className="block xl:hidden">
+          <div className="container block mt-7 xl:hidden">
             <MobileToggle
               links={navbar.links}
               socialLinks={navbar.socialLinks}

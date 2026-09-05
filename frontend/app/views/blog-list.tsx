@@ -12,7 +12,7 @@ interface Category {
 }
 
 interface Project {
-  id: 4;
+  id: number;
   attributes: {
     name: string;
     slug: string;
@@ -40,7 +40,7 @@ export default function PostList({
 }) {
   return (
     <section>
-      <div className="grid justify-center grid-cols-1 p-10 gap-x-10 gap-y-14 md:grid-cols-2 2xl:grid-cols-3 md:px-9">
+      <div className="grid grid-cols-1 gap-x-10 gap-y-14 justify-center p-10 md:grid-cols-2 2xl:grid-cols-3 md:px-9">
         {projects.map((project) => {
           const imageUrl = getStrapiMedia(project.attributes.cover.data?.attributes.url);
           const categories = project.attributes.categories.data;
@@ -49,25 +49,25 @@ export default function PostList({
             <Link
               href={`/portfolio/${project.attributes.slug}`}
               key={project.id}
-              className="w-full mx-auto overflow-hidden group hover:no-underline focus:no-underline"
+              className="overflow-hidden mx-auto w-full group hover:no-underline focus:no-underline"
             >
               {imageUrl && (
                 <LazyLoadImage
                   alt={project.attributes.cover.data.attributes.alternativeText}
-                  width="455"
-                  height="367"
+                  // width="492"
+                  // height="397"
                   effect="opacity"
                   wrapperClassName="w-full"
                   className="object-cover w-full aspect-[4/3]"
                   src={imageUrl}
                 />
               )}
-              <div className="flex flex-row items-center gap-4 mt-4">
+              <div className="flex flex-row gap-4 items-center mt-4">
                 <h3 className="flex-none text-xs font-medium uppercase md:text-sm xl:text-lg">
                   {project.attributes.name}
                 </h3>
 
-                <div key={project.id} className="flex items-center flex-1">
+                <div key={project.id} className="flex flex-1 items-center">
                   {categories.map((category: Category, index: number) => (
                     <span key={category.id} className="text-[10px] md:text-xs xl:text-[15px] font-normal text-[#474747]">
                         {category.attributes.name}
