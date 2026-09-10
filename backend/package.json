@@ -10,17 +10,15 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.19.1",
-    "@strapi/plugin-seo": "^1.8.0",
-    "@strapi/plugin-users-permissions": "4.19.1",
-    "@strapi/strapi": "4.19.1",
-    "better-sqlite3": "8.6.0",
-    "esbuild": "^0.19.11",
-    "pg": "^8.11.3",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "styled-components": "5.3.3"
+    "@strapi-community/plugin-seo": "2.1.1",
+    "@strapi/plugin-users-permissions": "5.52.3",
+    "@strapi/strapi": "5.52.3",
+    "better-sqlite3": "13.0.3",
+    "pg": "8.23.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.30.3",
+    "styled-components": "6.1.19"
   },
   "author": {
     "name": "Bastien SOARES"
@@ -29,8 +27,8 @@
     "uuid": "42b937aa-0f16-4a30-bb55-95f60ec03b48"
   },
   "engines": {
-    "node": ">=18.0.0 <=20.x.x",
-    "npm": ">=6.0.0"
+    "node": ">=22.22.0 <27",
+    "npm": ">=10.0.0"
   },
   "license": "MIT"
 }

@@ -1,7 +1,8 @@
 import { fetchAPI } from "./fetch-api";
 
 export function getStrapiURL(path = '') {
-    return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${path}`;
+    const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://127.0.0.1:1337').replace(/\/$/, '');
+    return `${baseUrl}${path}`;
 }
 
 export function getStrapiMedia(url: string | null) {
@@ -15,7 +16,7 @@ export function getStrapiMedia(url: string | null) {
     }
 
     // Otherwise prepend the URL path with the Strapi URL
-    return `${getStrapiURL()}${url}`;
+    return new URL(url, `${getStrapiURL()}/`).toString();
 }
 
 export async function getGlobal(): Promise<any> {
@@ -27,16 +28,18 @@ export async function getGlobal(): Promise<any> {
     const options = { headers: { Authorization: `Bearer ${token}` } };
 
     const urlParamsObject = {
-        populate: [
-            "metadata.shareImage",
-            "favicon",
-            "notificationBanner.link",
-            "navbar.links.projects",
-            "navbar.socialLinks",
-            "navbar.navbarLogo.logoImg",
-            "footer.title",
-            "footer.content",
-        ],
+        populate: {
+            metadata: true,
+            favicon: true,
+            navbar: {
+                populate: {
+                    links: { populate: { projects: true } },
+                    socialLinks: true,
+                    navbarLogo: { populate: { logoImg: true } },
+                },
+            },
+            footer: { populate: { content: true } },
+        },
     };
     return await fetchAPI(path, urlParamsObject, options);
 }

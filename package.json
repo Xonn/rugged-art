@@ -1,15 +1,19 @@
 {
   "scripts": {
-    "frontend": "yarn dev --prefix ../frontend/",
-    "backend": "yarn dev --prefix ../backend/",
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm run develop --prefix backend",
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
-    "setup:frontend": "cd frontend && yarn",
-    "setup:backend": "cd backend && yarn",
-    "setup": "yarn install && yarn setup:frontend && yarn setup:backend",
-    "dev": "yarn clear && concurrently \"cd frontend && yarn dev\" \"cd backend && yarn develop\"",
+    "setup:frontend": "npm install --prefix frontend",
+    "setup:backend": "npm install --prefix backend",
+    "setup": "npm install && npm run setup:frontend && npm run setup:backend",
+    "dev": "npm run clear && concurrently \"npm run dev --prefix frontend\" \"npm run develop --prefix backend\"",
     "repo:upstream": "git fetch upstream && git merge upstream/main"
   },
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "10.0.5"
+  },
+  "engines": {
+    "node": ">=22.22.0 <27",
+    "npm": ">=10.0.0"
   }
 }

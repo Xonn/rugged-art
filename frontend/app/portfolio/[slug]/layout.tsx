@@ -1,14 +1,9 @@
 import React from "react";
 
-export default async function LayoutRoute({
-  params,
+export default function LayoutRoute({
   children,
 }: {
   children: React.ReactNode;
-  params: {
-    slug: string;
-    category: string;
-  };
 }) {
   return (
     <div>

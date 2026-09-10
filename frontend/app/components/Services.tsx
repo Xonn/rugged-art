@@ -33,7 +33,7 @@ export default function Services({ data }: ServicesProps) {
         </div>
         <div className="flex gap-10 uppercase md:ml-10 md:flex-col lg:flex-row lg:pt-0">
           {rightContent.map((content, i) => (
-            <RichText data={content} />
+            <RichText key={i} data={content} />
           ))}
         </div>
       </div>

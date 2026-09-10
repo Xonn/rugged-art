@@ -6,40 +6,39 @@
 
 const populate = {
   contentSections: {
-    populate: {
-      picture: {
-        fields: ["url", "alternativeText", "caption", "width", "height"],
-      },
-      pictureMobile: {
-        fields: ["url", "alternativeText", "caption", "width", "height"],
-      },
-      buttons: {
-        populate: true,
-      },
-      feature: {
+    on: {
+      "sections.hero": {
         populate: {
-          fields: ["title", "description", "showLink", "newTab", "url", "text"],
-          media: {
+          picture: {
             fields: ["url", "alternativeText", "caption", "width", "height"],
           },
+          buttons: true,
         },
       },
-      testimonials: {
+      "sections.introduction": {
+        populate: {
+          picture: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          pictureMobile: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          buttons: true,
+        },
+      },
+      "sections.location-contact": {
         populate: {
           picture: {
             fields: ["url", "alternativeText", "caption", "width", "height"],
           },
         },
       },
-      plans: {
-        populate: ["product_features"],
+      "sections.services": {
+        populate: { content: true },
       },
-      submitButton: {
-        populate: true,
+      "sections.heading-rich-text": {
+        fields: ["title", "content"],
       },
-      content: {
-        populate: true,
-      }
     },
   },
   seo: {
@@ -53,11 +52,9 @@ module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
     ctx.query = {
       populate,
-      filters: { slug: ctx.query.filters.slug },
+      filters: { slug: ctx.query?.filters?.slug },
       locale: ctx.query.locale,
     };
-
-    console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
     await next();
   };

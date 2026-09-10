@@ -1,10 +1,9 @@
 # Rugged-art
 Site vitrine de Rugged-Art (Dylan RAMBINAISING)
 Stack technique :
-- NextJS 14
-- TailwindCSS
-- Typescript
-- Strapi (Backend)
+- Node.js 22.22+ (LTS)
+- Next.js 16, React 19, Tailwind CSS 4 et TypeScript 6
+- Strapi 5
 
 ![demo-site](images/rugged-art.gif)
 
@@ -18,10 +17,10 @@ Stack technique :
   gh repo clone strapi/nextjs-corporate-starter
 ```
 
-2. Run `setup` command to setup frontend and backend dependencies:
+2. Utilisez Node.js 22.22+ puis installez les dépendances npm :
 
 ```bash
-  yarn setup
+  npm run setup
 ```
 
 3. Next, navigate to your `/backend` directory and set up your `.env` file. You can use the `.env.example` file as reference:
@@ -39,8 +38,8 @@ TRANSFER_TOKEN_SALT=tobemodified
 4. Start your project by running the following command:
 
 ```bash
-  yarn build
-  yarn develop
+  npm run build
+  npm run develop
 ```
 
 You will be prompted to create your first admin user.
@@ -57,7 +56,7 @@ Next we need to switch to our `/frontend` directory and create our `.env` file a
 NEXT_PUBLIC_STRAPI_API_TOKEN=your-api-token
 NEXT_PUBLIC_PAGE_LIMIT=6
 NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN=your-form-submission-token
-NEXT_PUBLIC_STRAPI_API_URL=http://localhost:1337
+NEXT_PUBLIC_STRAPI_API_URL=http://127.0.0.1:1337
 
 ```
 
@@ -110,7 +109,7 @@ In Permissions lets give the following access.
 
 Add your token to your `NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN` variable name in the `.env` file.
 
-Once your environment variables are set you can start your frontend application by running `yarn dev`.
+Once your environment variables are set you can start your frontend application by running `npm run dev`.
 
 You should now see your Next JS frontend.
 
@@ -123,18 +122,18 @@ You can find the setting inside the `package.json` file inside the root folder.
 ```json
 {
   "scripts": {
-    "frontend": "yarn dev --prefix ../frontend/",
-    "backend": "yarn dev --prefix ../backend/",
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm run develop --prefix backend",
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
-    "setup:frontend": "cd frontend && yarn",
-    "setup:backend": "cd backend && yarn",
-    "setup": "yarn install && yarn setup:frontend && yarn setup:backend",
-    "dev": "yarn clear && concurrently \"cd frontend && yarn dev\" \"cd backend && yarn develop\""
+    "setup:frontend": "npm install --prefix frontend",
+    "setup:backend": "npm install --prefix backend",
+    "setup": "npm install && npm run setup:frontend && npm run setup:backend",
+    "dev": "npm run clear && concurrently \"npm run dev --prefix frontend\" \"npm run develop --prefix backend\""
   },
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "10.0.5"
   }
 }
 ```
 
-You can start both apps by running `yarn dev`.
+You can start both apps by running `npm run dev`.

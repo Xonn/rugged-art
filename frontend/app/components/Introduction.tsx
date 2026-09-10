@@ -61,7 +61,9 @@ export default function Introduction({ data }: IntroductionProps) {
           />
       </div>
       <div className="container flex flex-col items-end justify-center w-7/12 p-6 mx-auto font-medium font-bertioga lg:flex-row lg:justify-between">
-          <Markdown children={data.textLeft} className="text-3xl text-center uppercase lg:text-left" />
+          <div className="text-3xl text-center uppercase lg:text-left">
+            <Markdown>{data.textLeft}</Markdown>
+          </div>
           <Image
             src="/smiley.svg"
             alt="Smiley"
@@ -69,13 +71,19 @@ export default function Introduction({ data }: IntroductionProps) {
             height={27}
             className="relative bottom-1"
           />
-          <Markdown children={data.textRight} className="text-3xl text-center uppercase lg:text-right" />
+          <div className="text-3xl text-center uppercase lg:text-right">
+            <Markdown>{data.textRight}</Markdown>
+          </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-8 mt-16 lg:flex-row">
-        {data.buttons.map((button: Button, index: number) => (
-          <Button size="lg" variant={button.type === "primary" ? "primary" : "secondary"} asChild>
+        {data.buttons.map((button: Button) => (
+          <Button
+            key={button.id || button.url}
+            size="lg"
+            variant={button.type === "primary" ? "primary" : "secondary"}
+            asChild
+          >
             <Link
-              key={index}
               href={button.url}
               target={button.newTab ? "_blank" : "_self"}
             >

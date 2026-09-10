@@ -8,7 +8,6 @@ async function getPostBySlug(slug: string) {
     const urlParamsObject = {
         filters: { slug },
         populate: {
-            name: { populate: '*' },
             cover: { fields: ['url'] },
             categories: { populate: '*' },
             pictures: { populate: '*' },
@@ -31,8 +30,14 @@ async function getMetaData(slug: string) {
     return response.data;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const meta = await getMetaData(params.slug);
+type RouteProps = {
+    params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: RouteProps): Promise<Metadata> {
+    const { slug } = await params;
+    const meta = await getMetaData(slug);
+    if (!meta?.[0]?.attributes?.seo) return {};
     const metadata = meta[0].attributes.seo;
 
     return {
@@ -41,10 +46,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
-export default async function PostRoute({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+export default async function PostRoute({ params }: RouteProps) {
+    const { slug } = await params;
     const data = await getPostBySlug(slug);
-    if (data.data.length === 0) return <h2>no post found</h2>;
+    if (!data.data?.length) return <h2>no post found</h2>;
     return <Post data={data.data[0]} />;
 }
 

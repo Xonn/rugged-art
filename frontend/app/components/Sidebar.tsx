@@ -68,7 +68,9 @@ export default function Sidebar({
     <div className="flex relative flex-col p-5 h-full xl:border-r-2 border-[#F5F5F5] xl:w-[190px] xl:fixed max-xl:items-center">
       <Logo src={logoUrl} size={84} />
 
-      <Markdown children={shortDescription} className="pt-7 pb-12 text-xs font-medium uppercase" />
+      <div className="pt-7 pb-12 text-xs font-medium uppercase">
+        <Markdown>{shortDescription}</Markdown>
+      </div>
       <div className="flex flex-col justify-between items-center h-3/4 text-center xl:text-left xl:items-stretch">
         <ul className="flex relative flex-col gap-y-9">
           {links.map((item: SideLinkProps) => (
