@@ -25,7 +25,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'rugged-art.onrender.com',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: '*.neon.tech', // Autorise tous les sous-domaines de stockage Neon
+      },
     ],
   },
 }
