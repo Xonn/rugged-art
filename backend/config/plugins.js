@@ -19,6 +19,7 @@ module.exports = ({ env }) => {
             endpoint: env('AWS_ENDPOINT_URL_S3'),
             forcePathStyle: true,
             params: {
+              ACL: null,
               Bucket: env('AWS_BUCKET', 'assets'),
             },
           },
