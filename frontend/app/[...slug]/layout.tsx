@@ -1,5 +1,5 @@
 import React from 'react'
-import { getStrapiMedia, getGlobal, getProjects } from "../utils/api-helpers";
+import { getStrapiMedia, getGlobal } from "../utils/api-helpers";
 import Sidebar from '../components/Sidebar';
 import { MobileToggle } from '@/components/mobile-toggle';
 import Footer from '../components/Footer';

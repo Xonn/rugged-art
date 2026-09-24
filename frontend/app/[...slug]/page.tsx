@@ -1,11 +1,27 @@
 import {sectionRenderer} from "../utils/section-renderer";
 import {Metadata} from "next";
 import {getPageBySlug} from "../utils/get-page-by-slug";
+import {fetchAPI} from "../utils/fetch-api";
 import {FALLBACK_SEO} from "../utils/constants";
 import {i18n} from '../../i18n-config';
 
 type Props = {
     params: Promise<{ slug: string[] }>;
+}
+
+export async function generateStaticParams() {
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const pages = await fetchAPI('/pages', {
+        fields: ['slug'],
+        pagination: { pageSize: 100 },
+    }, options);
+
+    return pages.data
+        .filter((page: { attributes: { slug: string } }) => page.attributes.slug !== 'home')
+        .map((page: { attributes: { slug: string } }) => ({
+            slug: page.attributes.slug.split('/').filter(Boolean),
+        }));
 }
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {

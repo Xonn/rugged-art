@@ -61,6 +61,7 @@ export async function generateStaticParams() {
         path,
         {
             populate: ['categories'],
+            pagination: { pageSize: 100 },
         },
         options
     );
@@ -73,6 +74,6 @@ export async function generateStaticParams() {
                 //     slug: string;
                 // };
             };
-        }) => ({ slug: project.attributes.slug/*, category: project.attributes.slug*/ })
+        }) => ({ slug: project.attributes.slug })
     );
 }

@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  // Generate a deployable static site. Strapi is contacted only while the
+  // frontend is built, not when a visitor opens a page.
+  output: 'export',
   turbopack: {
     root: __dirname,
   },
   images: {
-    // The local Strapi server is not reliably reachable by the Next image
-    // optimizer during development. Keep direct media URLs locally and use
-    // the optimizer in production.
-    unoptimized: process.env.NODE_ENV !== 'production',
+    // The Next image optimizer needs a running Next server and is not
+    // available with a static export.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'http',

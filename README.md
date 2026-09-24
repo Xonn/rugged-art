@@ -137,3 +137,31 @@ You can find the setting inside the `package.json` file inside the root folder.
 ```
 
 You can start both apps by running `npm run dev`.
+
+## Production: frontend statique
+
+Le frontend est exporté en HTML/CSS/JS statiques dans `frontend/out`. Pendant
+`npm run build --prefix frontend`, Next.js récupère le contenu publié depuis
+Strapi et génère les pages et projets. Une fois déployé, le frontend ne fait
+plus d'appel Strapi pour afficher le contenu. Le formulaire de contact reste
+un appel client vers Strapi pour enregistrer l'adresse e-mail.
+
+Le fichier `render.yaml` configure le frontend comme Static Site Render :
+
+- Root directory : `frontend`
+- Build command : `npm ci && npm run build`
+- Publish directory : `out`
+
+Les variables d'environnement nécessaires au build sont `NEXT_PUBLIC_STRAPI_API_URL`
+et `NEXT_PUBLIC_STRAPI_API_TOKEN`. Conservez aussi
+`NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN` pour le formulaire.
+
+### Rebuild après une modification Strapi
+
+Dans Render, créez un **Deploy Hook** sur le Static Site frontend. Dans Strapi,
+ouvrez `Settings > Webhooks > Create new webhook`, indiquez l'URL du Deploy Hook
+et sélectionnez les événements de publication souhaités (`entry.publish`,
+`entry.unpublish`, `entry.update`, `entry.delete` ainsi que les événements
+correspondants aux composants/single types si nécessaire). Chaque événement
+déclenchera alors un nouveau build du frontend, qui récupérera les dernières
+données Strapi.

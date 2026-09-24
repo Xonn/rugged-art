@@ -52,7 +52,10 @@ export async function getProjects(): Promise<any> {
     const path = `/projects`;
     const options = { headers: { Authorization: `Bearer ${token}` } };
 
-    return await fetchAPI(path, {populate: '*'}, options);
+    return await fetchAPI(path, {
+        populate: '*',
+        pagination: { pageSize: 100 },
+    }, options);
 }
 
 export function formatDate(dateString: string) {
