@@ -146,11 +146,8 @@ Strapi et génère les pages et projets. Une fois déployé, le frontend ne fait
 plus d'appel Strapi pour afficher le contenu. Le formulaire de contact reste
 un appel client vers Strapi pour enregistrer l'adresse e-mail.
 
-Le fichier `render.yaml` configure le frontend comme Static Site Render :
-
-- Root directory : `frontend`
-- Build command : `npm ci && npm run build`
-- Publish directory : `out`
+Dans Vercel, configurez le projet avec `frontend` comme **Root Directory**.
+Le build command est `npm run build` et la sortie statique est `out`.
 
 Les variables d'environnement nécessaires au build sont `NEXT_PUBLIC_STRAPI_API_URL`
 et `NEXT_PUBLIC_STRAPI_API_TOKEN`. Conservez aussi
@@ -158,7 +155,7 @@ et `NEXT_PUBLIC_STRAPI_API_TOKEN`. Conservez aussi
 
 ### Rebuild après une modification Strapi
 
-Dans Render, créez un **Deploy Hook** sur le Static Site frontend. Dans Strapi,
+Dans Vercel, créez un **Deploy Hook** sur le projet frontend. Dans Strapi,
 ouvrez `Settings > Webhooks > Create new webhook`, indiquez l'URL du Deploy Hook
 et sélectionnez les événements de publication souhaités (`entry.publish`,
 `entry.unpublish`, `entry.update`, `entry.delete` ainsi que les événements
