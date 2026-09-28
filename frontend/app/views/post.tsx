@@ -1,7 +1,7 @@
 "use client";
 
 import { getStrapiMedia } from '../utils/api-helpers';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Image from 'next/image';
 
 interface Category {
     id: number;
@@ -42,18 +42,17 @@ export default function Post({ data }: { data: Project }) {
     return (
         <article className="w-full">
             {data.attributes.pictures.data?.map((picture: Picture) => {
-                var picUrl = getStrapiMedia(picture.attributes.url);
+                const picUrl = getStrapiMedia(picture.attributes.url);
 
                 return (picUrl &&
-                    <LazyLoadImage
+                    <Image
                         key={picture.id}
                         src={picUrl}
                         alt={picture.attributes.alternativeText}
-                        effect="opacity"
+                        width={1200}
+                        height={800}
                         sizes="100vw"
-                        style={{ width: '100%', height: 'auto' }} // optional
-                        wrapperClassName="w-full"
-                        className="inline-block object-cover w-full"
+                        className="inline-block object-cover w-full h-auto"
                     />
                 )
             })}

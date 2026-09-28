@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getStrapiMedia, formatDate } from "../utils/api-helpers";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { getStrapiMedia } from "../utils/api-helpers";
 
 interface Category {
   id: number;
@@ -54,24 +53,26 @@ export default function PostList({
               className="overflow-hidden mx-auto w-full group hover:no-underline focus:no-underline"
             >
               {imageUrl && (
-                <LazyLoadImage
-                  alt={project.attributes.cover.data.attributes.alternativeText}
-                  // width="492"
-                  // height="397"
-                  effect="opacity"
-                  wrapperClassName="w-full"
-                  className="object-cover w-full aspect-[4/3]"
+                <div className="overflow-hidden w-full aspect-4/3">
+                <Image
+                  alt={project.attributes.cover.data?.attributes.alternativeText || project.attributes.name}
+                  width={492}
+                  height={369}
+                  className="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-110"
                   src={imageUrl}
                 />
+              </div>
               )}
               <div className="flex flex-row gap-4 items-center mt-4">
-                <h3 className="flex-none text-xs font-medium uppercase md:text-sm xl:text-lg">
-                  {project.attributes.name}
+              <h3 className="inline-flex relative items-center text-xs font-medium text-black uppercase transition-colors duration-200 md:text-sm xl:text-lg group-hover:text-white group-hover:delay-250">
+                  {/* Fond animé */}
+                  <span className="relative z-10">{project.attributes.name}</span>
+                  <span className="absolute inset-0 bg-black animate-fill-hover" aria-hidden="true" />
                 </h3>
 
                 <div key={project.id} className="flex flex-1 items-center">
                   {categories.map((category: Category, index: number) => (
-                    <span key={category.id} className="text-[10px] md:text-xs xl:text-[15px] font-normal text-[#474747]">
+                    <span key={category.id} className="text-[10px] hover:text-black md:text-xs xl:text-[15px] font-normal text-[#474747]">
                         {category.attributes.name}
                         {index === categories.length -1 ? '' : ', '}
                     </span>

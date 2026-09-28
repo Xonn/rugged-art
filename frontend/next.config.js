@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
-  // Generate a deployable static site. Strapi is contacted only while the
-  // frontend is built, not when a visitor opens a page.
-  output: 'export',
+  // Static export is only for the production build. Local development keeps
+  // the normal Next.js server so HMR and request-time rendering work.
+  ...(isProduction ? { output: 'export' } : {}),
   turbopack: {
     root: __dirname,
   },

@@ -175,3 +175,27 @@ body,
 .react-slideshow-container [aria-label="Next Slide"] {
   margin-right: 1rem;
 }
+
+@keyframes underlineToFill {
+  0% {
+    transform: scaleX(0) scaleY(0.08);
+  }
+  50% {
+    /* Étape 1 : S'étale complètement en largeur (reste une fine ligne) */
+    transform: scaleX(1) scaleY(0.08);
+  }
+  100% {
+    /* Étape 2 : S'agrandit en hauteur jusqu'en haut */
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+.animate-fill-hover {
+  transform-origin: bottom left;
+  transform: scaleX(0) scaleY(0.08);
+  transition: transform 0.25s ease-out;
+}
+
+.group:hover .animate-fill-hover {
+  animation: underlineToFill 0.8s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
