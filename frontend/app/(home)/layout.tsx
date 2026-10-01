@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar";
 import { getStrapiMedia, getGlobal } from "../utils/api-helpers";
+import Navbar from "../components/Navbar";
 
 export default async function MainLayout({
   children,
@@ -12,20 +12,14 @@ export default async function MainLayout({
   
   const { navbar } = global.data.attributes;
 
-  const navbarLogoUrl = getStrapiMedia(
-    navbar.navbarLogo.logoImg.data.attributes.url
-  );
+  const navbarLogoUrl = getStrapiMedia(navbar.navbarLogo.logoImg.data.attributes.url);
 
   return (
-    <div className="h-full text-gray-100 bg-black">
+    <div className="h-screen text-gray-100 bg-black">
       <Navbar
-          links={navbar.links}
-          logoUrl={navbarLogoUrl}
-          logoText={navbar.navbarLogo.logoText}
-        />
-      <main>
-        {children}
-      </main>
+        logoUrl={navbarLogoUrl}
+      />
+      <main>{children}</main>
     </div>
   );
 }

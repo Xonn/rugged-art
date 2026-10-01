@@ -1,8 +1,7 @@
 import React from 'react'
-import { getStrapiMedia, getGlobal } from "../utils/api-helpers";
-import Sidebar from '../components/Sidebar';
+import { getStrapiMedia, getGlobal } from "../../utils/api-helpers";
 import { MobileToggle } from '@/components/mobile-toggle';
-import Footer from '../components/Footer';
+import Footer from '../../components/Footer';
 
 export default async function layout({children} : {children: React.ReactNode}) {
   const global = await getGlobal();
@@ -16,17 +15,9 @@ export default async function layout({children} : {children: React.ReactNode}) {
   );
 
   return (
-    <div className="h-full bg-white grid grid-cols-1 xl:grid-cols-[190px_1fr]">
-      <aside className="hidden xl:block">
-        <Sidebar
-          links={navbar.links}
-          socialLinks={navbar.socialLinks}
-          logoUrl={navbarLogoUrl}
-          shortDescription={navbar.shortDescription}
-        />
-      </aside>
+    <div className="h-full">
       <main className="text-gray-900 p-0 bg-[#FCFCFC]">
-        <div className="container block mt-7 xl:hidden">
+        <div className="container block pt-7 xl:hidden">
           <MobileToggle
             links={navbar.links}
             socialLinks={navbar.socialLinks}
@@ -34,8 +25,8 @@ export default async function layout({children} : {children: React.ReactNode}) {
             shortDescription={navbar.shortDescription}
           />
         </div>
-        <div className="container md:px-[22px] px-[39px] md:pl-[120px] py-20 xl:px-20">
-          {children}
+        <div className="container md:px-5.5 px-9.75 md:pl-30 py-20 xl:px-20">
+            {children}
         </div>
         <Footer
           title={footer.title}

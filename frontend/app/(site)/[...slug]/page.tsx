@@ -1,9 +1,9 @@
-import {sectionRenderer} from "../utils/section-renderer";
+import {sectionRenderer} from "../../utils/section-renderer";
 import {Metadata} from "next";
-import {getPageBySlug} from "../utils/get-page-by-slug";
-import {fetchAPI} from "../utils/fetch-api";
-import {FALLBACK_SEO} from "../utils/constants";
-import {i18n} from '../../i18n-config';
+import {getPageBySlug} from "../../utils/get-page-by-slug";
+import {fetchAPI} from "../../utils/fetch-api";
+import {FALLBACK_SEO} from "../../utils/constants";
+import {i18n} from '../../../i18n-config';
 
 type Props = {
     params: Promise<{ slug: string[] }>;
