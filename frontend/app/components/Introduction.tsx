@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Download } from "lucide-react";
 import { getStrapiMedia } from "../utils/api-helpers";
 import Markdown from "react-markdown";
 import { Button } from "../../components/ui/button";
@@ -76,21 +77,42 @@ export default function Introduction({ data }: IntroductionProps) {
           </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-8 mt-16 lg:flex-row">
-        {data.buttons.map((button: Button) => (
-          <Button
-            key={button.id || button.url}
-            size="lg"
-            variant={button.type === "primary" ? "primary" : "secondary"}
-            asChild
-          >
-            <Link
-              href={button.url}
-              target={button.newTab ? "_blank" : "_self"}
+        {data.buttons.map((button: Button) => {
+          const isPrimary = button.type === "primary";
+
+          return (
+            <Button
+              key={button.id || button.url}
+              size="lg"
+              variant={isPrimary ? "primary" : "secondary"}
+              asChild
             >
-              {button.text}
-            </Link>
-          </Button>
-        ))}
+              <Link
+                href={button.url}
+                target={button.newTab ? "_blank" : "_self"}
+                className={`group relative overflow-hidden transition-colors duration-300 ease-out motion-reduce:transition-none ${
+                  isPrimary ? "hover:text-black focus-visible:text-black" : ""
+                }`}
+              >
+                {isPrimary && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-white transition-transform duration-500 ease-out group-hover:scale-100 group-focus-visible:scale-100 motion-reduce:transition-none"
+                  />
+                )}
+                <span className="relative z-10 inline-flex items-center">
+                  {button.text}
+                  {!isPrimary && (
+                    <Download
+                      aria-hidden="true"
+                      className="absolute top-1/2 left-full ml-2 h-[18px] w-[18px] -translate-y-1/2 -translate-x-1.5 opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 motion-reduce:transition-none"
+                    />
+                  )}
+                </span>
+              </Link>
+            </Button>
+          );
+        })}
       </div>
     </section>
   );
